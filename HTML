@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VerseQuest - Daily Bible Study App. Grow your faith with daily verses, personal reflections, and achievement tracking.">
+    <meta name="theme-color" content="#6B5AE8">
+    <meta property="og:title" content="VerseQuest — Daily Bible Study">
+    <meta property="og:description" content="Build your Bible study habit. Read daily verses, reflect, and level up your faith journey.">
+    <title>VerseQuest — Daily Bible Study</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <div class="brand-icon">✝</div>
+        <div>
+            <h1>VerseQuest</h1>
+            <span>Daily Bible Study</span>
+        </div>
+    </div>
+
+    <nav>
+        <button class="nav-btn active" data-section="home">Home</button>
+        <button class="nav-btn" data-section="progress">Progress</button>
+        <button class="nav-btn" data-section="achievements">Achievements</button>
+        <button class="nav-btn" data-section="favorites">Favorites</button>
+    </nav>
+
+    <button id="themeButton" class="theme-button">🌙</button>
+</header>
+
+<main>
+
+    <!-- HOME -->
+    <section id="home" class="section active-section">
+
+        <div class="hero">
+            <div>
+                <p class="eyebrow">TODAY'S STUDY</p>
+                <h2>Grow your faith.<br><span>One verse at a time.</span></h2>
+                <p class="hero-text">
+                    Read today's verse, reflect on it, and earn XP as you build your Bible study habit.
+                </p>
+            </div>
+
+            <div class="level-card">
+                <div class="level-circle" id="levelNumber">1</div>
+                <div>
+                    <p>YOUR LEVEL</p>
+                    <strong id="levelName">New Reader</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+
+            <div class="stat-card">
+                <span>🔥</span>
+                <div>
+                    <small>STREAK</small>
+                    <strong><span id="streak">0</span> days</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span>⭐</span>
+                <div>
+                    <small>TOTAL XP</small>
+                    <strong id="totalXP">0 XP</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span>📖</span>
+                <div>
+                    <small>VERSES READ</small>
+                    <strong id="versesRead">0</strong>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span>🏆</span>
+                <div>
+                    <small>ACHIEVEMENTS</small>
+                    <strong id="achievementCount">0</strong>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="content-grid">
+
+            <article class="verse-card">
+
+                <div class="card-header">
+                    <div>
+                        <p class="eyebrow">DAILY VERSE</p>
+                        <h3 id="verseReference">John 3:16</h3>
+                    </div>
+
+                    <button id="favoriteButton" class="icon-button">♡</button>
+                </div>
+
+                <div class="verse-content">
+                    <div class="quote-mark">"</div>
+                    <p id="verseText">
+                        For God so loved the world, that he gave his only begotten Son,
+                        that whosoever believeth in him should not perish, but have everlasting life.
+                    </p>
+                </div>
+
+                <div class="verse-footer">
+                    <span id="verseVersion">KJV</span>
+                    <span id="verseDate"></span>
+                </div>
+
+                <button id="completeButton" class="primary-button">
+                    ✓ Complete Today's Study
+                </button>
+
+            </article>
+
+            <aside class="side-card">
+
+                <div class="card-header">
+                    <div>
+                        <p class="eyebrow">LEVEL PROGRESS</p>
+                        <h3>Keep going!</h3>
+                    </div>
+                    <span class="xp-badge" id="xpBadge">0 XP</span>
+                </div>
+
+                <div class="progress-info">
+                    <span id="currentLevelText">Level 1</span>
+                    <span id="nextLevelText">100 XP</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div id="xpProgress"></div>
+                </div>
+
+                <p class="small-text">
+                    Read today's verse to earn <strong>25 XP</strong>.
+                </p>
+
+                <div class="mini-mission">
+                    <span>📚</span>
+                    <div>
+                        <strong>Daily Mission</strong>
+                        <p>Read and reflect on today's verse.</p>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <section class="reflection-card">
+
+            <div class="reflection-heading">
+                <div>
+                    <p class="eyebrow">PERSONAL REFLECTION</p>
+                    <h3>What does this verse mean to you?</h3>
+                </div>
+                <span>📝</span>
+            </div>
+
+            <textarea id="reflection"
+                placeholder="Write your thoughts here..."></textarea>
+
+            <button id="saveReflection" class="secondary-button">
+                Save Reflection
+            </button>
+
+            <span id="savedMessage"></span>
+
+        </section>
+
+    </section>
+
+
+    <!-- PROGRESS -->
+    <section id="progress" class="section">
+
+        <div class="page-heading">
+            <p class="eyebrow">YOUR JOURNEY</p>
+            <h2>Bible Study Progress</h2>
+            <p>See how far you've come.</p>
+        </div>
+
+        <div class="big-level-card">
+
+            <div class="big-level-number" id="bigLevel">1</div>
+
+            <div class="big-level-info">
+                <p>CURRENT LEVEL</p>
+                <h3 id="bigLevelName">New Reader</h3>
+
+                <div class="progress-bar large">
+                    <div id="bigXPProgress"></div>
+                </div>
+
+                <span id="bigXPText">0 / 100 XP</span>
+            </div>
+
+        </div>
+
+        <div class="progress-stats">
+
+            <div>
+                <span>⭐</span>
+                <strong id="progressXP">0</strong>
+                <p>Total XP</p>
+            </div>
+
+            <div>
+                <span>📖</span>
+                <strong id="progressVerses">0</strong>
+                <p>Verses Read</p>
+            </div>
+
+            <div>
+                <span>🔥</span>
+                <strong id="progressStreak">0</strong>
+                <p>Day Streak</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="section">
+
+        <div class="page-heading">
+            <p class="eyebrow">REWARDS</p>
+            <h2>Achievements</h2>
+            <p>Keep studying to unlock them.</p>
+        </div>
+
+        <div class="achievement-grid" id="achievementGrid"></div>
+
+    </section>
+
+
+    <!-- FAVORITES -->
+    <section id="favorites" class="section">
+
+        <div class="page-heading">
+            <p class="eyebrow">SAVED VERSES</p>
+            <h2>Your Favorites</h2>
+            <p>Verses you've saved for later.</p>
+        </div>
+
+        <div id="favoritesList" class="favorites-list"></div>
+
+    </section>
+
+</main>
+
+<div id="successModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Study Complete!</h2>
+            <button class="modal-close" id="closeModal">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-icon" id="modalIcon">📖</div>
+            <p id="modalMessage">Great job completing today's study!</p>
+            <div id="modalStats" class="modal-stats"></div>
+        </div>
+        <button id="continueButton" class="primary-button" style="width: 100%; margin-top: 1rem;">
+            Continue
+        </button>
+    </div>
+</div>
+
+<footer>
+    <p>VerseQuest • Daily Bible Study</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
